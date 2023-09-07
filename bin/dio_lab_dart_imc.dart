@@ -11,5 +11,5 @@ void main() {
   Service imc = Service();
   imc
     ..calcularIMC(pessoa)
-    ..mostrarIMC(pessoa);
+    ..mostrarIMC(imc);
 }
