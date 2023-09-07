@@ -53,20 +53,31 @@ class Service {
       pessoa!.altura = 0.01;
     }
 
+    _verificarSePesoEmKg();
     _verificarSeAlturaEmMetros();
     result = (pessoa!.peso / pow(pessoa!.altura, 2));
     classificacao = _classificarPorIMC(result!);
     imc = result!.toStringAsFixed(1);
   }
 
+  ///Verifica se [pessoa.peso] está em Kg.
+  ///
+  ///Função interna. Chamada pela função [calcularIMC].
+  void _verificarSePesoEmKg() {
+    var digitos = pessoa!.peso.toString().split('.').first;
+
+    if (digitos.length > 3) {
+      pessoa!.peso = pessoa!.peso / 1000;
+    }
+  }
+
   ///Verifica se [pessoa.altura] está em metros.
   ///
   ///Função interna. Chamada pela função [calcularIMC].
   void _verificarSeAlturaEmMetros() {
-    var altura = pessoa!.altura.toString();
-    var digitos = altura.split('.').first;
+    var digitos = pessoa!.altura.toString().split('.').first;
 
-    if (altura.contains('.') && digitos.length > 1) {
+    if (digitos.length > 1) {
       pessoa!.altura = pessoa!.altura / 100;
     }
   }

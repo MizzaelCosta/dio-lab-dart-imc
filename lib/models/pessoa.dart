@@ -26,7 +26,7 @@ class Pessoa {
     return '''
 
 Nome: $nome
-Peso: ${peso.toStringAsFixed(2)}
+Peso: ${peso.toStringAsFixed(3)}
 Altura: ${altura.toStringAsFixed(2)}''';
   }
 }
