@@ -1,45 +1,45 @@
 import 'dart:convert';
 import 'dart:io';
 
-/// Lê o console e retorna a [String] digitada.
+/// Lê o terminal e retorna a [String] digitada.
 ///
-/// Função de uso interno. Usada pelas Funções [lerString] e [lerDouble].
-String _lerConsole({String? message}) {
-  print(message);
+/// Função de uso interno. Usada pelas Funções [lerTexto] e [lerDecimal].
+String _lerTerminal({String? mensagem}) {
+  print(mensagem);
   return stdin.readLineSync(encoding: utf8) ?? '';
 }
 
-/// Lê o console e retorna um valor do tipo [String].
+/// Lê o terminal e retorna um valor do tipo [String].
 ///
 /// **Uso:**
 /// ```
-/// input = lerString(message:'message');
+/// terminal = lerString(mensagem: 'mensagem');
 ///
 /// ```
-String lerString({String? message}) {
+String lerTexto({String? mensagem}) {
   try {
-    return _lerConsole(message: message);
+    return _lerTerminal(mensagem: mensagem);
   } on FormatException {
     print('Ops! Algo deu errado, vamos tentar de novo?');
-    return lerString(message: message);
+    return lerTexto(mensagem: mensagem);
   } catch (e) {
     throw Exception(e);
   }
 }
 
-/// Lê o console e retorna um valor do tipo [double].
+/// Lê o terminal e retorna um valor do tipo [double].
 ///
 /// **Uso:**
 /// ```
-/// input = lerDouble(message:'message');
+/// terminal = lerDecimal(mensagem: 'mensagem');
 ///
 /// ```
-double lerDouble({String? message}) {
+double lerDecimal({String? mensagem}) {
   try {
-    return double.parse(_lerConsole(message: message));
+    return double.parse(_lerTerminal(mensagem: mensagem));
   } on FormatException {
     print('Ops! Você digitou um número? Vamos tentar de novo...');
-    return lerDouble(message: message);
+    return lerDecimal(mensagem: mensagem);
   } catch (e) {
     throw Exception(e);
   }

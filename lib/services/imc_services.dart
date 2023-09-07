@@ -3,14 +3,14 @@ import 'dart:math';
 import '../models/pessoa.dart';
 
 ///Classe de serciços para calculos de [imc].
-class Service {
+class IMCService {
   String? imc;
   String? classificacao;
   double? result;
   Pessoa? pessoa;
 
-  ///Construtor da classe [Service].
-  Service();
+  ///Construtor da classe [IMCService].
+  IMCService();
 
   ///Retorna a classificação de [imc] baseada no valor recebido.
   ///
@@ -86,7 +86,7 @@ class Service {
   ///
   /// Em caso de [imc] ainda ser nulo a função mostra uma menssagem
   /// de aviso.
-  void mostrarIMC(Service service) {
+  void mostrarIMC(IMCService service) {
     if (service.imc == null) {
       print('Sem IMC, tente chamar [cacularIMC] antes.');
       return;

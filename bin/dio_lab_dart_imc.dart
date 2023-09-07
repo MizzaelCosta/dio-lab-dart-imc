@@ -1,14 +1,14 @@
 import 'package:dio_lab_dart_imc/models/pessoa.dart';
-import 'package:dio_lab_dart_imc/services/services.dart';
+import 'package:dio_lab_dart_imc/services/imc_services.dart';
 import 'package:dio_lab_dart_imc/utils/ler_console.dart';
 
 void main() {
   Pessoa pessoa = Pessoa(
-    nome: lerString(message: 'Digite seu nome: ').toUpperCase(),
-    peso: lerDouble(message: 'Digite seu peso (Kg): '),
-    altura: lerDouble(message: 'Digite sua altura: '),
+    nome: lerTexto(mensagem: 'Digite seu nome: ').toUpperCase(),
+    peso: lerDecimal(mensagem: 'Digite seu peso (Kg): '),
+    altura: lerDecimal(mensagem: 'Digite sua altura: '),
   );
-  Service imc = Service();
+  IMCService imc = IMCService();
   imc
     ..calcularIMC(pessoa)
     ..mostrarIMC(imc);

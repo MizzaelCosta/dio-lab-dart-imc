@@ -26,7 +26,7 @@ void main() {
           altura: double.parse(values['altura'].toString()),
         );
 
-        Service teste = Service()..calcularIMC(pessoa);
+        IMCService teste = IMCService()..calcularIMC(pessoa);
         expect(teste.imc, expected);
       });
     });
