@@ -6,7 +6,7 @@ void main() {
   Pessoa pessoa = Pessoa(
     nome: lerString(message: 'Digite seu nome: ').toUpperCase(),
     peso: lerDouble(message: 'Digite seu peso (Kg): '),
-    altura: lerDouble(message: 'Digite sua altura (cm) - Apenas números: '),
+    altura: lerDouble(message: 'Digite sua altura: '),
   );
   Service imc = Service();
   imc

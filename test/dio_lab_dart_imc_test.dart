@@ -14,7 +14,7 @@ void main() {
       {'nome': 'Obesidade II', 'peso': 90, 'altura': 1.60}: '35.2',
       {'nome': 'Obesidade III', 'peso': 100, 'altura': 1.60}: '39.1',
       {'nome': 'Excessão: altura = 0', 'peso': 120, 'altura': 0}: '1200000.0',
-      {'nome': 'Excessão: altura em metros', 'peso': 120, 'altura': 1.8}:
+      {'nome': 'Excessão: altura em centímetros', 'peso': 120, 'altura': 180}:
           '37.0',
     };
 

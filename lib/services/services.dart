@@ -2,7 +2,7 @@ import 'dart:math';
 
 import '../models/pessoa.dart';
 
-///Classe para calculos de [imc] de [pessoa].
+///Classe de serciços para calculos de [imc].
 class Service {
   String? imc;
   String? classificacao;
@@ -53,20 +53,22 @@ class Service {
       pessoa!.altura = 0.01;
     }
 
-    pessoa = _verificarSeAlturaEmCentimetros();
+    _verificarSeAlturaEmMetros();
     result = (pessoa!.peso / pow(pessoa!.altura, 2));
     classificacao = _classificarPorIMC(result!);
     imc = result!.toStringAsFixed(1);
   }
 
-  ///Verifica se [pessoa.altura] está em centímetro.
+  ///Verifica se [pessoa.altura] está em metros.
   ///
   ///Função interna. Chamada pela função [calcularIMC].
-  Pessoa _verificarSeAlturaEmCentimetros() {
-    if (!pessoa!.altura.toString().contains('.')) {
+  void _verificarSeAlturaEmMetros() {
+    var altura = pessoa!.altura.toString();
+    var digitos = altura.split('.').first;
+
+    if (altura.contains('.') && digitos.length > 1) {
       pessoa!.altura = pessoa!.altura / 100;
     }
-    return pessoa!;
   }
 
   /// Mostra o resultado obtido após a chamada da função [calcularIMC].
@@ -74,11 +76,11 @@ class Service {
   /// Em caso de [imc] ainda ser nulo a função mostra uma menssagem
   /// de aviso.
   void mostrarIMC(Service service) {
-    if (imc == null) {
+    if (service.imc == null) {
       print('Sem IMC, tente chamar [cacularIMC] antes.');
       return;
     }
-    print('''${pessoa.toString()}
+    print('''${service.pessoa.toString()}
 IMC: $imc - $classificacao
     ''');
   }
