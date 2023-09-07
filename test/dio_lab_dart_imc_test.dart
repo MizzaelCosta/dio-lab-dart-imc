@@ -1,5 +1,5 @@
 import 'package:dio_lab_dart_imc/models/pessoa.dart';
-import 'package:dio_lab_dart_imc/services/services.dart';
+import 'package:dio_lab_dart_imc/services/imc_services.dart';
 import 'package:test/test.dart';
 
 void main() {
