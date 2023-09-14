@@ -86,12 +86,12 @@ class IMCService {
   ///
   /// Em caso de [imc] ainda ser nulo a função mostra uma menssagem
   /// de aviso.
-  void mostrarIMC(IMCService service) {
-    if (service.imc == null) {
+  void mostrarIMC() {
+    if (imc == null) {
       print('Sem IMC, tente chamar [cacularIMC] antes.');
       return;
     }
-    print('''${service.pessoa.toString()}
+    print('''${pessoa.toString()}
 IMC: $imc - $classificacao
     ''');
   }

@@ -11,5 +11,5 @@ void main() {
   IMCService imc = IMCService();
   imc
     ..calcularIMC(pessoa)
-    ..mostrarIMC(imc);
+    ..mostrarIMC();
 }
